@@ -1,0 +1,29 @@
+{
+	"name": "",
+
+	"parameters": [
+		{"resistance": ""},
+		{"tolerance": ""},
+		{"height": ""},
+		{"width": ""},
+		{"length": ""},
+		{"temp_range": ""},
+		{"temp_coeff": ""},
+		{"pkg_type": ""},
+		{"pkg_name": ""},
+		{"comp": ""},
+		{"power": ""}
+	],
+
+	"symbol": "library/models/sch/RES_GENERIC.SchLib", 
+	
+	"footprint": "library/models/pcb/RESC0402(1005)_N.PcbLib", 
+	
+	"part_choices": [
+		{"supplier": "DigiKey", "spn": "12345-ND", "url": "www.digikey.com/12345-ND"}
+	],
+	
+	"docs": [
+		{"name": "Datasheet", "path": "library/datasheets/ResistorTechnicalGuide.pdf"}
+	]
+}
