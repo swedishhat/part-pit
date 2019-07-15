@@ -1,0 +1,28 @@
+{"guid": ""}
+{"name": ""}
+
+"parameters": [
+	{"resistance": ""},
+	{"tolerance": ""},
+	{"height": ""},
+	{"width": ""},
+	{"length": ""},
+	{"temp range": ""},
+	{"temperature coefficient": ""},
+	{"package type": ""},
+	{"package name": ""}
+	{"composition": ""}
+	{"power": ""}
+]
+
+"symbol": "res.schlib" # this needs to be made content-addressible or otherwise somehow made to not break if the filename is moved to a different path or otherwise changed
+"footprint": "res0402_L.pcblib"
+"footprint": "res0402_N.pcblib"
+
+"part choices": [
+	digikey shit
+]
+
+"docs": [
+	link to resistors on wikipedia or something...
+]
