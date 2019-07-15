@@ -2,6 +2,13 @@
 A library manager for Altium at the moment that eventually can make BoMs
 
 ## Why?
+You know what sucks? Trying to make a PCB and not having the part you want in your library. You know what also sucks? The fact that someone already probably made that part, but it's siloed away in some inaccessible company database, behind  some paywall, or in a different file format. 
+
+EE Concierge
+SnapEDA
+Kicad Standard Libraries
+Altium Standard Libraries
+https://www.pcblibraries.com
 
 ## What does it do?
 
