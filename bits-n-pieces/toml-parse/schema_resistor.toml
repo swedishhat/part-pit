@@ -1,7 +1,5 @@
 schema_name = "resistor_generic"
 
-# toml_types can only be string, int, float, & bool. Don't fuck with datetimes yet 
-
 # Anything in the [required] table can't be empty by definition. If it has to be
 # a specific value, then that is specified
 
@@ -32,6 +30,8 @@ schema_name = "resistor_generic"
 [required.models.footprint]
     schema_type = "string_validpath"
 
+[required.]
+
 [required.param.resistance]
     schema_type = "numerical"
     quantity = "resistance"
@@ -45,6 +45,10 @@ schema_name = "resistor_generic"
     quantity = "power"
 
 [required.param.tolerance]
-[required.param.
+[required.param]
+
+[optional.param.temp_coeff]
+schema_type = "numerical"
+quantity = "inverse_temperature"
 
 
