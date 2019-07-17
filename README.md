@@ -1,5 +1,4 @@
-# part-pit
-https://github.com/swedishhat/part-pit
+# [Part Pit](https://github.com/swedishhat/part-pit)
 A git-friendly library manager for Altium
 
 ## The Least Fun Part of Electronics Design
@@ -10,9 +9,7 @@ Don't get me wrong... it's not like there aren't ways to find the parts you need
 However, these services have their own styles and standards that may be inconsistent with your system. For example, do parts exported from SnapEDA conform to the [KiCad KLC](http://kicad-pcb.org/libraries/klc/)? Do Altium's unified parts (also EE Concierge because Altium bought them) match your company's own internal library styles and conventions? How are errors reported and corrected if it turns out these third parties borked up? How much manual intervention do you really want to have in pouring over and tweaking the individual library parts?
 
 ## What does it do?
-The purpose of this project is to create a component library system for Altium that allows schematic symbols and PCB footprints to be linked together using a text-based component definition, and then produce a DbLib file that can be consumed by Altium. The git repository containing the models and component definitions is the global source of truth, not the DbLib. This means that all modifications, additions, deletions, and issue resolutions occur using a standard git workflow in the tool of your choice. The DbLib is destroyed and recreated each time the git repository is updated.
-
-The database that links to the DbLib is designed to be self-hosted on each developer's machine so that the library remains fully decentralized. 
+The purpose of this project is eventually to create a totally text-based component library system that can import from and export to any arbitrary CAD tool format, but there are some external forces that are guiding the devleopment priorities. This is meant to serve first as an alternative to Altium's Vault system using existing binary library files. Components will be defined using TOML, and the tool will use this to link together the specified symbol / footprint / PDF / parameters and produce an Altium DbLib file that links to a locally hosted SQLite3 database. This allows the library to function without internet access, and all changes to the library can be resolved using a git workflow.
 
 * Components are currently defined with TOML but eventually I'd like to support JSON, YAML, & maybe XML
 * Components all stored in a git repository so you can do diffing & merge resolution using those tools
