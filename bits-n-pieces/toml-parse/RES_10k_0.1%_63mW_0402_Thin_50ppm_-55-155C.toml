@@ -1,67 +1,106 @@
-# names can be hard-coded or they can be 
-#name = "RES 10K 0.1% 63mW SMD-0402 Thin 50ppm -55-155C"
+# names can be hard-coded or they can be auto-generated from the list of 
+#name = "RES 10K 0.1% 63mW 0402(M1005) ThinFilm 50ppm/C -55-155C"
 name = "@AUTO"
 
-
-# lifecycles can be anything and change at any time! 
+# lifecycles can be anything and change at any time! Just define it in your schema
 lifecycle = "new"
 
-# category connects the part to the appropriate schema
-category = "resistor/single"
+# category can be defined by directory structure
+#category = "resistor/single"
+category = "@AUTO" # defined by directory structure
 
-# Documentation needs support for multiple documents (duh...)
-link.docs = [[]]
+# Documentation
+[[document]]
+name = "Datasheet"
+path = "@DOCS/datasheets/resistors.PDF"
+#path = "http://resistors.com/datasheet.pdf"
 
-# Required for Altium. how do i specify a variable path?
-[link.model]
-  symbol = "@MODELS/sch/res.SchLib"
-  footprint = "@MODELS/pcb/RESC0402.PcbLib"
-  #simulation = "@MODELS/sim/RES.Sim"
+[[model]]
+name = "footprint"
+path = "@MODELS/pcb/RESC0402.PcbLib"
+#path = "../pcb/RESC0402.PcbLib"
 
-# This parameter is going to need some lovin'
-# It should be able to support a _list_ of **EQUIVALENT** packages
-[param.package]
-  value = "0402 (1005 Metric)"
-  #unit = "none"
+[[model]]
+name = "symbol"
+path = "@MODELS/sch/res.SchLib"
+#path = "../sch/res.SchLib"
 
-[param.length]
-  value = 9999.0
-  unit = "mm"
+# [[model]]
+# name = "3d"
+# path = "@MODELS/3d/RESC0402.step"
 
-[param.width]
-  value = 9999.0
-  unit = "mm"
+# [[model]]
+# name = "simulation"
+# path = "@MODELS/sim/RES.Sim"
 
-[param.height]
-  value = 9999.0
-  unit = "mm"
 
-[param.resistance]
-  value = 10000.0
-  unit = "ohm"
-  visible = true
+# Parameters
+# ----------
+# Parameters specify the electrical and mechanical properties of the component. They can be almost anything,
+# but you should try to align them with an existing component schema for the sake of library consistency and 
+# part searchability. 
+#
+# Parameters are always of the form:
+#
+# [[parameter]]
+# name = <string>
+# value = <string> or <number> 
+# unit = <string> 
+# visible = <boolean> # 
+# 
+# If the `value` key is a string, it is implied that there are no units and the key can be ommitted.
+# If the `visible` key is ommitted, it takes the default value of false.
 
-[param.tolerance]
-  value = 0.1
-  unit = "%"
+[[parameter]]
+name = "resistance"
+value = 10000.0
+unit = "ohm"
+visible = true
 
-[param.power]
-  value = 0.063
-  unit = "W"
+[[parameter]]
+name = "package"
+value = "0402(M1005)"
 
-[param.composition]
-  value = "Thin Film"
-  unit = ""
-  
-[param.temp_min]
-  value = -55.0
-  unit = "C"
+[[parameter]]
+name = "tolerance"
+value = 1.0
+unit = "%"
 
-[param.temp_max]
-    value = 155.0
-    unit = "C"
+[[parameter]]
+name = "power"
+value = 63.0
+unit = "mW"
 
-[param.temp_coeff]
-  value = 50.0
-  unit = "ppm/C"
+[[parameter]]
+name = "composition"
+value = "Thin Film"
 
+[[parameter]]
+name = "temp_min"
+value = -55.0
+unit = "C"
+
+[[parameter]]
+name = "temp_max"
+value = 155.0
+unit = "C"
+
+[[parameter]]
+name = "temp_coeff"
+value = 50.0
+unit = "ppm/C"
+
+[[parameter]]
+name = "length"
+value = 1.0
+unit = "mm"
+
+[[parameter]]
+name = "width"
+value = 0.5
+unit = "mm"
+
+[[parameter]]
+name = "height"
+value = 0.4
+unit = "mm"
