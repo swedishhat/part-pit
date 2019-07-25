@@ -3,10 +3,10 @@ schema_name = "resistor_generic"
 # Anything in the [required] table can't be empty by definition. If it has to be
 # a specific value, then that is specified
 
-# string_anything - can be any string at all, even empty
-# string_something - can be anything as long as it's not empty
-# string_validpath - must resolve to a valid path on the filesystem
-# numerical - can be either float or int, but will be converted to float
+# string_any - can be any string at all, even empty
+# string_nonempty - can be anything as long as it's not empty
+# string_path - must resolve to a valid path on the filesystem (or network???)
+# numerical - can be either float or int, but will be converted to float internally for conversions
 #
 # Numerical types have a value but also some quantity that that they are measuring.
 # The quantity must be specified so that the parser can take care of conversions
@@ -14,8 +14,27 @@ schema_name = "resistor_generic"
 # represented internally as the same quantity. Doesn't matter what the base unit is,
 # just as long as it's defined and consistent
 
+# @STRING_NONEMPTY is an alias for the regualr expressions ^(?!\s*$).+ and will match any string that contains at least one non-space character
+
+[[required]]
+field = "name"
+type = "string"
+value = "@REGEXP_STRING_NONEMPTY"
+multiples = false
+
+[[required]]
+field = "description"
+type = "string"
+value = "@REGEXP_STRING_ANY"
+
+[[required]]
+field = "lifecycle"
+type = "string"
+value = ["untested", "prototype", "rocksolid", "garbage"]
+
 [required.name]
-    schema_type = "string_any"
+    type = "string_any"
+    entries = "exactly_one"
     # TODO
     # schema_type = "string_something"
     # value = RE that defines the happy name types that I like
