@@ -30,8 +30,6 @@ schema_name = "resistor_generic"
 [required.models.footprint]
     schema_type = "string_validpath"
 
-[required.]
-
 [required.param.resistance]
     schema_type = "numerical"
     quantity = "resistance"
@@ -44,11 +42,8 @@ schema_name = "resistor_generic"
     schema_type = "numerical"
     quantity = "power"
 
-[required.param.tolerance]
-[required.param]
-
 [optional.param.temp_coeff]
-schema_type = "numerical"
-quantity = "inverse_temperature"
+    schema_type = "numerical"
+    quantity = "inverse_temperature"
 
 
