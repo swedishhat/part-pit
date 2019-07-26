@@ -1,7 +1,7 @@
-name			= "RES 10K 1% 63mW SMD 0402 (M1005) Thin Film Vishay"
-description		= "RES 10K 1% 63mW SMD 0402 (M1005) Thin Film Vishay"
+name			= "RES 10K 1% 0.063W SMD 0402 (M1005) Thin Film Vishay"
+description		= "RES 10K 1% 0.063W SMD 0402 (M1005) Thin Film Vishay"
 category		= "resistor"
-lifecycle_state	= "untested"
+lifecycle_state         = "untested"
 constraints		= "ologic_config_resistors"
 
 [external_file]
@@ -32,8 +32,8 @@ constraints		= "ologic_config_resistors"
 
 	[parameter.power]
 	name = "power"
-	value = 63.0
-	unit = "mW"
+	value = 0.063
+	unit = "W"
 	visible = false
 
 	[parameter.mounting_type]

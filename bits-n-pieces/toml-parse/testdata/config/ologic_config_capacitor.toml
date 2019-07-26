@@ -1,4 +1,4 @@
-name = "ologic_config_resistor"
+name = "ologic_config_capacitor"
 
 # Anything in the [required] table can't be empty by definition. If it has to be
 # a specific value, then that is specified
@@ -75,33 +75,30 @@ allow_multiples = true
         allow_multiples = false
         accepted_values = ["@STRING_PATH"]
 
-
 [component.parameter]
     required = true
     allow_multiples = true
 
-    [component.parameter.resistance]
+    [component.parameter.capacitance]
     required = true
     allow_multiples = false
 
-        [component.parameter.resistance.value]
+        [component.parameter.capacitance.value]
         required = true
         allow_multiples = false
         accepted_values = ["@NUMBER_GTE_ZERO"]
 
-        # To represent ohms with Unicode, the U+03A9 Ω greek capital letter omega is preferred.
-        # The Unicode Standard states that the U+2126 ohm sign is included in Unicode ONLY FOR
-        # BACKWARD COMPATIBILITY REASONS.
-        [component.parameter.resistance.unit]
+        [component.parameter.capacitance.unit]
         required = true
         allow_multiples = false
-        accepted_values = ["\u03A9", "m\u03A9", "k\u03A9", "Meg\u03A9"]
-        
-        [component.parameter.resistance.visible]
+        accepted_values = ["F", "uF", "pF"]
+
+        [component.parameter.capacitance.visible]
         required = true
         allow_multiples = false
         accepted_values = [true, false]
 
+    
     [component.parameter.tolerance]
     required = true
     allow_multiples = false
@@ -109,77 +106,108 @@ allow_multiples = true
         [component.parameter.tolerance.value]
         required = true
         allow_multiples = false
-        accepted_values = [1, 0.5, 0.25, 0.2, 0.1, 0.05, 0.02, 0.01, "Jumper"]
+        accepted_values = ["@NUMBER_GTE_ZERO"]
 
         [component.parameter.tolerance.unit]
         required = true
         allow_multiples = false
-        accepted_values = ["%"]
+        accepted_values = ["%", "ppm"]
     
         [component.parameter.tolerance.visible]
         required = true
         allow_multiples = false
         accepted_values = [true, false]
 
-    [component.parameter.power]
+    [component.parameter.temp_coef]
     required = true
     allow_multiples = false
 
-        [component.parameter.power.value]
+        [component.parameter.temp_coef.value]
+        required = true
+        allow_multiples = false
+        accepted_values = ["C0G", "NP0", "X5R", "X7R"]
+
+        [component.parameter.temp_coef.unit]
+        required = false
+        allow_multiples = false
+        accepted_values = [""]
+    
+        [component.parameter.temp_coef.visible]
+        required = true
+        allow_multiples = false
+        accepted_values = [true, false]
+
+    [component.parameter.voltage]
+    required = true
+    allow_multiples = false
+
+        [component.parameter.voltage.value]
         required = true
         allow_multiples = false
         accepted_values = "@NUMBER_GTE_ZERO"
         
-        [component.parameter.power.unit]
+        [component.parameter.voltage.unit]
         required = true
         allow_multiples = false
-        accepted_values = ["W", "mW", "kW"]
+        accepted_values = ["V"]
         
-        [component.parameter.power.visible]
+        [component.parameter.voltage.visible]
         required = true
         allow_multiples = false
         accepted_values = [true, false]
-
-   
-    [component.parameter.mounting_type]
-    required = true
-    allow_multiples = false
- 
-    [component.parameter.mounting_type.value]
-        required = true
-        allow_multiples = false
-        accepted_values = ["SMD"]
-        
-        [component.parameter.mounting_type.unit]
-        required = false
-        allow_multiples = false
-        accepted_values = [""]
-        
-        [component.parameter.mounting_type.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
-     
+    
     [component.parameter.package]
     required = true
     allow_multiples = false
 
+        # This list can probably get smaller....
+        [component.parameter.package.value]
         required = true
         allow_multiples = false
-        [component.parameter.package.value]
         accepted_values = [
-            "01005 (M0402)",            
             "0201 (M0603)",
+            "0202 (M0505)",
+            "0204 (M0510)",
+            "0306 (M0816)",
             "0402 (M1005)",
+            "0502 (M1406)",
+            "0504 (M1210)",
             "0505 (M1313)",
+            "0508 (M1220)",
             "0603 (M1608)",
+            "0612 (M1632)",
+            "0709 (M1823)",
             "0805 (M2012)",
+            "01005 (M0402)",
+            "1005 (M2512)",
+            "1111 (M2828)",
             "1206 (M3216)",
             "1210 (M3225)",
-            "1218 (M3246)",
+            "1410 (M3524)",
+            "1410 (M3727)",
+            "1805 (M4512)",
+            "1808 (M4520)",
+            "1810 (M4525)",
             "1812 (M4532)",
-            "2010 (M5025)",
-            "2512 (M6432)"]
+            "1825 (M4564)",
+            "2008 (M5020)",
+            "2012 (M5030)",
+            "2211 (M5728)",
+            "2215 (M5738)",
+            "2220 (M5750)",
+            "2225 (M5763)",
+            "2325 (M5864)",
+            "2520 (M5650)",
+            "2520 (M6450)",
+            "2525 (M6464)",
+            "2824 (M7260)",
+            "3025 (M7563)",
+            "3040 (M7610)",
+            "3640 (M9110)",
+            "3838 (M9797)",
+            "4044 (M1011)",
+            "008004 (M0201)",
+            "015008 (M05025)"]
 
         [component.parameter.package.unit]
         # The unit is not required for this parameter,
@@ -193,6 +221,25 @@ allow_multiples = true
         allow_multiples = false
         accepted_values = [true, false]
 
+    [component.parameter.mounting_type]
+    required = true
+    allow_multiples = false
+
+        [component.parameter.mounting_type.value]
+        required = true
+        allow_multiples = false
+        accepted_values = ["SMD", "TH"]
+
+        [component.parameter.mounting_type.unit]
+        required = false
+        allow_multiples = false
+        accepted_values = [""]
+
+        [component.parameter.mounting_type.visible]
+        required = true
+        allow_multiples = false
+        accepted_values = [true, false]
+
     [component.parameter.manufacturer]
     required = false
     allow_multiples = false
@@ -200,7 +247,12 @@ allow_multiples = true
         [component.parameter.manufacturer.value]
         required = true
         allow_multiples = false
-        accepted_values = ["@STRING_NONEMPTY"]
+        accepted_values = [
+            "Vishay", 
+            "KEMET",
+            "Knowles",
+            "Samsung",
+            "Panasonic"]
         
         [component.parameter.manufacturer.unit]
         required = false
@@ -211,23 +263,22 @@ allow_multiples = true
         required = true
         allow_multiples = false
         accepted_values = [true, false]
-    
-    [component.parameter.composition]
+
+    [component.parameter.height]
     required = false
     allow_multiples = false
-        
-        [component.parameter.composition.value]
+
+        [component.parameter.height.value]
         required = true
         allow_multiples = false
-        accepted_values = ["Thick Film", "Thin Film"]
+        accepted_values = ["@NUMBER_GTE_ZERO"]
 
-        [component.parameter.composition.unit]
-        required = false
+        [component.parameter.height.unit]
+        required = true
         allow_multiples = false
-        accepted_values = [""]
+        accepted_values = ["in", "mm", "mil"]
 
-        [component.parameter.composition.visible]
+        [component.parameter.height.visible]
         required = true
         allow_multiples = false
         accepted_values = [true, false]
-
