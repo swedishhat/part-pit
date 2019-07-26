@@ -1,0 +1,57 @@
+name			= "RES 10K 1% 63mW SMD 0402 (M1005) Thin Film Vishay"
+description		= "RES 10K 1% 63mW SMD 0402 (M1005) Thin Film Vishay"
+category		= "resistor"
+lifecycle_state	= "untested"
+constraints		= "ologic_config_resistors"
+
+[external_file]
+	
+	[external_file.document]
+	name = "datasheet"
+	path = "docs/datasheets/resistors.PDF"
+
+	[external_file.footprint]
+	name = "RESC0402"
+	path = "footprints/RESC0402.PcbLib"
+
+	[external_file.symbol]
+	name = "res2"
+	path = "symbols/res.SchLib"
+
+[parameter]
+
+	[parameter.resistance]
+	value = 10000.0
+	unit = "ohm"
+	visible = true
+
+	[parameter.tolerance]
+	value = 1.0
+	unit = "%"
+	visible = false
+
+	[parameter.power]
+	name = "power"
+	value = 63.0
+	unit = "mW"
+	visible = false
+
+	[parameter.mounting_type]
+	value = "smd"
+	visible = false
+
+	[parameter.package_imperial]
+	value = "0402"
+	visible = false
+
+	[parameter.package_metric]
+	value = "M1005"
+	visible = false
+
+	[parameter.composition]
+	value = "thin film"
+	visible = false
+
+	[parameter.manufacturer]
+	value = "vishay"
+	visible = false

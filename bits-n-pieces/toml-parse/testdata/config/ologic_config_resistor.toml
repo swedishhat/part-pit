@@ -1,0 +1,91 @@
+name = "ologic_config_resistors"
+
+# Anything in the [required] table can't be empty by definition. If it has to be
+# a specific value, then that is specified
+
+# Type checking
+# @STRING_NONEMPTY is a directive to check for a string type and compare against a regualr expression that will match any string that contains at least one non-whitespace character.
+# @STRING_ANY is a directive to check for a string type and compare against a regualr expression that will match any string.
+# @STRING_PATH is a directive to check for a string type and validate it as a path to a real file
+# @NUMBER_GTE_ZERO is a directive to check for a numerical type (int or floar) and validate that it is greater than or equal to zero
+# @BOOL_ANY is a directive to check for a boolean type but allow for either value
+
+
+[required.name]
+    value = "@STRING_NONEMPTY"
+    allow_multiples = false
+
+[required.description]
+    value = "@STRING_ANY"
+    allow_multiples = false
+    
+[required.category]
+    value = "resistor"
+    allow_multiples = false
+
+[required.lifecycle]
+    value = ["untested", "prototype", "rocksolid", "garbage"]
+    allow_multiples = false
+
+[required.external_file]
+
+    [required.external_file.document]
+    name = "@STRING_NONEMPTY"
+    path = "@STRING_PATH"
+    allow_multiples = true
+
+    [required.external_file.footprint]
+    name = "@STRING_NONEMPTY"
+    path = "@STRING_PATH"
+    allow_multiples = true
+    
+    [required.external_file.symbol]
+    name = "@STRING_NONEMPTY"
+    path = "@STRING_PATH"
+    allow_multiples = false
+
+[required.parameter]
+
+    [required.parameter.resistance]
+    value = "@NUMBER_GTE_ZERO"
+    unit = ["ohm", "kohm"] # at some point the thing should be able to handle orders of magnitude generally
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+    
+    [required.parameter.tolerance]
+    value = "@NUMBER_GTE_ZERO"
+    unit = ["%"]
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+
+    [required.parameter.power]
+    value = "@NUMBER_GTE_ZERO"
+    unit = ["W", "mW"]
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+
+    [required.parameter.package_imperial]
+    value = "@STRING_NONEMPTY"
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+    
+    [required.parameter.mounting_type]
+
+    allow_multiples = false
+
+[optional.parameter]
+    
+    [optional.parameter.package_metric]
+    value = "@STRING_NONEMPTY"
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+
+    [optional.parameter.manufacturer]
+    value = "@STRING_NONEMPTY"
+    visible = "@BOOL_ANY"
+    allow_multiples = false
+    
+    [optional.parameter.composition]
+    value = ["thick film", "thin film"]
+    visible = "@BOOL_ANY"
+    allow_multiples = false
