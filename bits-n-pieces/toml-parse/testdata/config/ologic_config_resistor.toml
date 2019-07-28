@@ -5,229 +5,191 @@ name = "ologic_config_resistor"
 
 # Type checking
 # @STRING_NONEMPTY is a directive to check for a string type and compare against a regualr expression that will match any string that contains at least one non-whitespace character.
-# @STRING_ANY is a directive to check for a string type and compare against a regualr expression that will match any string.
 # @STRING_PATH is a directive to check for a string type and validate it as a path to a real file
+# @STRING_URL
 # @NUMBER_GTE_ZERO is a directive to check for a numerical type (int or floar) and validate that it is greater than or equal to zero
+[component.config]
+required = true
+accepted_values = ["ologic_config_resistor"]
 
 [component.name]
 required = true
-allow_multiples = false
 accepted_values = ["@STRING_NONEMPTY"]
 
 [component.description]
 required = true
-allow_multiples = false
 accepted_values = ["@STRING_NONEMPTY"]
 
-[component.lifecycle_state]
+[component.lifecycle]
 required = true
-allow_multiples = false
 accepted_values = ["untested", "prototype", "rocksolid", "garbage"]
 
 [component.category]
 required = true
-allow_multiples = false
-accepted_values = ["capacitor"]
+accepted_values = ["resistor"]
 
-[component.external_file]
+# [[External_file.symbol]] is an array of tables, buy only a single symbol is allowed
+[component.external_file.symbol]
+required = true
+allow_multiples = false
+
+    [component.external.symbol.name]
+    required = true
+    allow_multiples = false
+    accepted_values = ["@STRING_NONEMPTY"]
+
+    [component.external.symbol.path]
+    required = true
+    allow_multiples = false
+    accepted_values = ["@STRING_PATH"]
+
+# [[External_file.footprint]] is an array of tables
+[component.external.footprint]
 required = true
 allow_multiples = true
 
-    [component.external_file.document]
-    required = false
-    allow_multiples = true
-
-        [component.external_file.document.name]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_NONEMPTY"]
-
-        [component.external_file.document.path]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_PATH"]
-
-    [component.external_file.footprint]
+    [component.external.footprint.name]
     required = true
-    allow_multiples = true
+    accepted_values = ["@STRING_NONEMPTY"]
 
-        [component.external_file.footprint.name]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_NONEMPTY"]
-
-        [component.external_file.footprint.path]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_PATH"]
-
-    [component.external_file.symbol]
+    [component.external.footprint.path]
     required = true
-    allow_multiples = false
+    accepted_values = ["@STRING_PATH"]
 
-        [component.external_file.symbol.name]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_NONEMPTY"]
+# [[External_file.document]] is an array of tables
+[component.external.document]
+required = false
+allow_multiples = true
 
-        [component.external_file.symbol.path]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_PATH"]
-
-
-[component.parameter]
+    [component.external.document.name]
     required = true
-    allow_multiples = true
+    accepted_values = ["@STRING_NONEMPTY"]
 
-    [component.parameter.resistance]
+    [component.external.document.path]
     required = true
-    allow_multiples = false
+    accepted_values = ["@STRING_PATH", "@STRING_URL"]
 
-        [component.parameter.resistance.value]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@NUMBER_GTE_ZERO"]
-
-        # To represent ohms with Unicode, the U+03A9 Ω greek capital letter omega is preferred.
-        # The Unicode Standard states that the U+2126 ohm sign is included in Unicode ONLY FOR
-        # BACKWARD COMPATIBILITY REASONS.
-        [component.parameter.resistance.unit]
-        required = true
-        allow_multiples = false
-        accepted_values = ["\u03A9", "m\u03A9", "k\u03A9", "Meg\u03A9"]
-        
-        [component.parameter.resistance.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
-
-    [component.parameter.tolerance]
-    required = true
-    allow_multiples = false
-
-        [component.parameter.tolerance.value]
-        required = true
-        allow_multiples = false
-        accepted_values = [1, 0.5, 0.25, 0.2, 0.1, 0.05, 0.02, 0.01, "Jumper"]
-
-        [component.parameter.tolerance.unit]
-        required = true
-        allow_multiples = false
-        accepted_values = ["%"]
+# [[parameter]] is an array of tables
+[component.parameter.resistance]
+required = true
     
-        [component.parameter.tolerance.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
-
-    [component.parameter.power]
+    [component.parameter.resistance.value]
     required = true
-    allow_multiples = false
+    accepted_values = ["@NUMBER_GTE_ZERO"]
 
-        [component.parameter.power.value]
-        required = true
-        allow_multiples = false
-        accepted_values = "@NUMBER_GTE_ZERO"
-        
-        [component.parameter.power.unit]
-        required = true
-        allow_multiples = false
-        accepted_values = ["W", "mW", "kW"]
-        
-        [component.parameter.power.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
+    # To represent ohms with Unicode, the U+03A9 Ω greek capital letter omega is preferred.
+    # The Unicode Standard states that the U+2126 ohm sign is included in Unicode ONLY FOR
+    # BACKWARD COMPATIBILITY REASONS.
+    [component.parameter.resistance.unit]
+    required = true
+    accepted_values = ["\u03A9", "m\u03A9", "k\u03A9", "Meg\u03A9"]
+
+    [component.parameter.resistance.visible]
+    required = true
+    accepted_values = [true, false]
+
+[component.parameter.tolerance]
+required = true
+
+    [component.parameter.tolerance.value]
+    required = true
+    accepted_values = [1, 0.5, 0.25, 0.2, 0.1, 0.05, 0.02, 0.01, 0] # 0 = jumper
+
+    [component.parameter.tolerance.unit]
+    required = true
+    accepted_values = ["%"]
+
+    [component.parameter.tolerance.visible]
+    required = true
+    accepted_values = [true, false]
+
+[component.parameter.power]
+required = true
+
+    [component.parameter.power.value]
+    required = true
+    accepted_values = "@NUMBER_GTE_ZERO"
+    
+    [component.parameter.power.unit]
+    required = true
+    accepted_values = ["W", "mW", "kW"]
+    
+    [component.parameter.power.visible]
+    required = true
+    accepted_values = [true, false]
 
    
-    [component.parameter.mounting_type]
+[component.parameter.mounting_type]
+required = true
+
+[component.parameter.mounting_type.value]
     required = true
-    allow_multiples = false
- 
-    [component.parameter.mounting_type.value]
-        required = true
-        allow_multiples = false
-        accepted_values = ["SMD"]
-        
-        [component.parameter.mounting_type.unit]
-        required = false
-        allow_multiples = false
-        accepted_values = [""]
-        
-        [component.parameter.mounting_type.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
-     
-    [component.parameter.package]
-    required = true
-    allow_multiples = false
-
-        required = true
-        allow_multiples = false
-        [component.parameter.package.value]
-        accepted_values = [
-            "01005 (M0402)",            
-            "0201 (M0603)",
-            "0402 (M1005)",
-            "0505 (M1313)",
-            "0603 (M1608)",
-            "0805 (M2012)",
-            "1206 (M3216)",
-            "1210 (M3225)",
-            "1218 (M3246)",
-            "1812 (M4532)",
-            "2010 (M5025)",
-            "2512 (M6432)"]
-
-        [component.parameter.package.unit]
-        # The unit is not required for this parameter,
-        # but if it is, it must be equal to an empty string
-        required = false
-        allow_multiples = false
-        accepted_values = [""]
-
-        [component.parameter.package.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
-
-    [component.parameter.manufacturer]
-    required = false
-    allow_multiples = false
-
-        [component.parameter.manufacturer.value]
-        required = true
-        allow_multiples = false
-        accepted_values = ["@STRING_NONEMPTY"]
-        
-        [component.parameter.manufacturer.unit]
-        required = false
-        allow_multiples = false
-        accepted_values = [""]
-
-        [component.parameter.manufacturer.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
+    accepted_values = ["SMD"]
     
-    [component.parameter.composition]
+    [component.parameter.mounting_type.unit]
     required = false
-    allow_multiples = false
-        
-        [component.parameter.composition.value]
-        required = true
-        allow_multiples = false
-        accepted_values = ["Thick Film", "Thin Film"]
+    accepted_values = [""]
+    
+    [component.parameter.mounting_type.visible]
+    required = true
+    accepted_values = [true, false]
+     
+[component.parameter.package]
+required = true
 
-        [component.parameter.composition.unit]
-        required = false
-        allow_multiples = false
-        accepted_values = [""]
+    [component.parameter.package.value]
+    required = true
+    accepted_values = [
+        "01005 (M0402)",            
+        "0201 (M0603)",
+        "0402 (M1005)",
+        "0505 (M1313)",
+        "0603 (M1608)",
+        "0805 (M2012)",
+        "1206 (M3216)",
+        "1210 (M3225)",
+        "1218 (M3246)",
+        "1812 (M4532)",
+        "2010 (M5025)",
+        "2512 (M6432)"]
 
-        [component.parameter.composition.visible]
-        required = true
-        allow_multiples = false
-        accepted_values = [true, false]
+    [component.parameter.package.unit]
+    required = false
+    accepted_values = [""]
+
+    [component.parameter.package.visible]
+    required = true
+    accepted_values = [true, false]
+
+[component.parameter.composition]
+required = false
+    
+    [component.parameter.composition.value]
+    required = true
+    accepted_values = ["Thick Film", "Thin Film"]
+
+    [component.parameter.composition.unit]
+    required = false
+    accepted_values = [""]
+
+    [component.parameter.composition.visible]
+    required = true
+    accepted_values = [true, false]
+
+[component.parameter.manufacturer]
+required = false
+
+    [component.parameter.manufacturer.value]
+    required = true
+    accepted_values = ["@STRING_NONEMPTY"]
+    
+    [component.parameter.manufacturer.unit]
+    required = false
+    accepted_values = [""]
+
+    [component.parameter.manufacturer.visible]
+    required = true
+    accepted_values = [true, false]
+    
+
 
