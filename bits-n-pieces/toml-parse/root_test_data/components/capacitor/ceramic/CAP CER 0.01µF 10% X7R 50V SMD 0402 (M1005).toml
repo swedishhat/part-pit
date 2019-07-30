@@ -1,0 +1,51 @@
+name        = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+description = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+[external]
+
+    [external.symbol]
+    name = "CAP2_NONPOL"
+    path = "symbols/CAP2_NONPOL.SchLib"
+
+    [[external.footprint]]
+    name = "CAP_CHIP_0805(M2012)_L"
+    path = "footprints/CAP_CHIP_0805(M2012)_L.PcbLib"
+
+    [[external.footprint]]
+    name = "CAP_CHIP_0805(M2012)_N"
+    path = "footprints/CAP_CHIP_0805(M2012)_N.PcbLib"
+
+[parameters]
+
+    [parameters.dielectric]
+    value = "Ceramic"
+    visible = false
+
+    [parameters.capacitance]
+    value = 10.0
+    unit = "µF"
+    visible = true
+
+    [parameters.tolerance]
+    value = 10.0
+    unit = "%"
+    visible = false
+
+    [parameters.voltage]
+    value = 10.0
+    unit = "V"
+    visible = true
+
+    [parameters.temp_coeff]
+    value = "X7R"
+    visible = false
+
+    [parameters.mounting_type]
+    value = "SMD"
+    visible = false
+
+    [parameters.package]
+    value = "0805 (M2012)"
+    visible = true
