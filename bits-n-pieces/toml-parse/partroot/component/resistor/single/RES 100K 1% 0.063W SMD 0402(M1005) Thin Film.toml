@@ -1,0 +1,74 @@
+#config 		= "ologic_config_resistor"
+
+name		= "RES 100K 1% 0.063W SMD 0402 (M1005) Thin Film"
+description	= "RES 100K 1% 0.063W SMD 0402 (M1005) Thin Film"
+category	= "resistor/single"
+lifecycle	= "untested"
+
+[[external]]
+type = "symbol"
+name = "RES2"
+path = "@PARTPATH/symbols/RES2.SchLib"
+
+[[external]]
+type = "footprint"
+name = "RESC0402_L"
+path = "@PARTPATH/footprints/RESC0402_L.PcbLib"
+
+[[external]]
+type = "footprint"
+name = "RESC0402_N"
+path = "@PARTPATH/footprints/RESC0402_N.PcbLib"
+
+[[external]]
+type = "document"
+name = "AN: Using Laser Trimmable Resistors"
+path = "@PARTPATH/docs/vishay-laser-trimmable-res.pdf"
+
+[[external]]
+type = "document"
+name = "AN: Frequency Response of Thin Film Chip Resistors"
+path = "@PARTPATH/docs/vishay-thin-res-freq-response.pdf"
+
+[[external]]
+type = "url"
+name = "Wikipedia"
+path = "https://en.wikipedia.org/wiki/Resistor"
+
+[[external]]
+type = "url"
+name = "Vishay Resistor AN Library"
+path = "https://www.vishay.com/how/onlineliterature/technical-library/#Resistors,%20Fixed,%20Thick%20film"
+
+[[parameter]]
+name = "resistance"
+value = 100000.0
+unit = "Ω"
+visible = true
+
+[[parameter]]
+name = "tolerance"
+value = 1.0
+unit = "%"
+visible = false
+
+[[parameter]]
+name = "power"
+value = 0.063
+unit = "W"
+visible = false
+
+[[parameter]]
+name = "mounting_type"
+value = "SMD"
+visible = false
+
+[[parameter]]
+name = "package"
+value = "0402 (M1005)"
+visible = false
+
+[[parameter]]
+name = "composition"
+value = "Thin Film"
+visible = false
