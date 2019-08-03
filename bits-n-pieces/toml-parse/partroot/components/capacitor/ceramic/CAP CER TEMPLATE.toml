@@ -1,0 +1,53 @@
+name        = "@AUTO"       # Generated from parameters
+description = "@AUTO"       # Generated from parameters
+category    = "@AUTO"       # Generated from directory structure
+lifecycle   = "untested"    # Default state should be untested
+
+[external]
+
+    [external.symbol]
+    name = "CAP2_NONPOL"
+    path = "@ROOTDIR/symbols/CAP2_NONPOL.SchLib"
+
+    [[external.footprint]]
+    name = "CAPCC0402_L"
+    path = "@ROOTDIR/footprints/smd/RESC0402_L.PcbLib"
+
+    [[external.footprint]]
+    name = "RESC0402_N"
+    path = "@ROOTDIR/footprints/smd/RESC0402_N.PcbLib"
+
+    # Maybe add datasheets or something as we go...
+
+[parameters]
+
+    [parameters.dielectric]
+    value = "Ceramic"
+    visible = false
+
+    [parameters.capacitance]
+    value = 0 # Should throw an error if left unchanged
+    unit = "µF"
+    visible = true
+
+    [parameters.tolerance]
+    value = 0 # Should throw an error if left unchanged
+    unit = "%"
+    visible = false
+
+    [parameters.voltage]
+    value = 0 # Should throw an error if left unchanged
+    unit = "V"
+    visible = true
+
+    [parameters.temp_coeff]
+    value = "" # Should throw an error if left unchanged
+    visible = false
+
+    [parameters.mounting_type]
+    value = "@AUTO" # Should be derivable from footprint
+    visible = false
+
+    [parameters.package]
+    value = "@AUTO" # Should be derivable from footprint
+    visible = true

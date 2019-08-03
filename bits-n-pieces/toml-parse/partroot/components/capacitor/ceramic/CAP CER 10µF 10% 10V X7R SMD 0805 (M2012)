@@ -1,0 +1,29 @@
+name        = "CAP CER 10µF 10% 10V X7R SMD 0805 (M2012)"
+description = "CAP CER 10µF 10% 10V X7R SMD 0805 (M2012)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+name        = "CAP CER 10µF 10% 25V X7R SMD 1210 (M3225)"
+description = "CAP CER 10µF 10% 25V X7R SMD 1210 (M3225)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+name        = "CAP CER 1µF 10% 16V X7R SMD 0603 (M1608)"
+description = "CAP CER 1µF 10% 16V X7R SMD 0603 (M1608)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+name        = "CAP CER 0.1µF 10% X7R 10V SMD 0402 (M1005)"
+description = "CAP CER 0.1µF 10% X7R 10V SMD 0402 (M1005)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+name        = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+description = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
+
+name        = "CAP CER 20pF 2% C0G 50V SMD 0402 (M1005)"
+description = "CAP CER 20pF 2% C0G 50V SMD 0402 (M1005)"
+category    = "capacitor/ceramic"
+lifecycle   = "untested"
