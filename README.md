@@ -1,7 +1,7 @@
 # [Part Pit](https://github.com/swedishhat/part-pit)
-A git-friendly library manager for Altium
+A git-friendly electronics library manager
 
-## Motivation
+## Introduction
 Creating electronics components is a huge, annoying time-suck. What's worse is that someone, somewhere has probably created the part already. It's also a ripe problem space to innovate on and several people and companies have attempted solving this already.
 
 Don't get me wrong... it's not like there aren't ways to find the parts you need already made. Many ECAD tools have their own standard libraries ([KiCad](https://kicad.github.io/) | [Altium](https://designcontent.live.altium.com/) | [Eagle](http://eagle.autodesk.com/eagle/libraries)) and there there are useful services like [EE Concierge](https://eeconcierge.com/), [SnapEDA](https://www.snapeda.com), [PCB Libraries](https://www.pcblibraries.com/) and others that have huge proprietary libraries that can export to a bunch of different ECAD tools. The services will even make parts for you, for some kind of fee if it's not in their library already. 
