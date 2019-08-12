@@ -1,5 +1,5 @@
-name        = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
-description = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+name        = "CAP CER 10µF 10% 10V X7R SMD 0805 (M2012)"
+description = "CAP CER 10µF 10% 10V X7R SMD 0805 (M2012)"
 category    = "capacitor/ceramic"
 lifecycle   = "untested"
 

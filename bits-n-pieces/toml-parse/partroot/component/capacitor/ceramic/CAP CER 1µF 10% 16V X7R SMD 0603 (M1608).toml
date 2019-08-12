@@ -1,5 +1,5 @@
-name        = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
-description = "CAP CER 0.01µF 10% X7R 50V SMD 0402 (M1005)"
+name        = "CAP CER 1µF 10% 16V X7R SMD 0603 (M1608)"
+description = "CAP CER 1µF 10% 16V X7R SMD 0603 (M1608)"
 category    = "capacitor/ceramic"
 lifecycle   = "untested"
 
@@ -10,12 +10,12 @@ lifecycle   = "untested"
     path = "symbols/CAP2_NONPOL.SchLib"
 
     [[external.footprint]]
-    name = "CAP_CHIP_0805(M2012)_L"
-    path = "footprints/CAP_CHIP_0805(M2012)_L.PcbLib"
+    name = "CAP_CHIP_0603(M1608)_L"
+    path = "footprints/CAP_CHIP_0603(M1608)_L.PcbLib"
 
     [[external.footprint]]
-    name = "CAP_CHIP_0805(M2012)_N"
-    path = "footprints/CAP_CHIP_0805(M2012)_N.PcbLib"
+    name = "CAP_CHIP_0603(M1608)_N"
+    path = "footprints/CAP_CHIP_0603(M1608)_N.PcbLib"
 
 [parameters]
 
@@ -24,7 +24,7 @@ lifecycle   = "untested"
     visible = false
 
     [parameters.capacitance]
-    value = 10.0
+    value = 1.0
     unit = "µF"
     visible = true
 
@@ -34,7 +34,7 @@ lifecycle   = "untested"
     visible = false
 
     [parameters.voltage]
-    value = 10.0
+    value = 16.0
     unit = "V"
     visible = true
 
@@ -47,5 +47,5 @@ lifecycle   = "untested"
     visible = false
 
     [parameters.package]
-    value = "0805 (M2012)"
+    value = "0603 (M1608)"
     visible = true

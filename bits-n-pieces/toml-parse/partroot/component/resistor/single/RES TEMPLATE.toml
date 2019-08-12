@@ -1,0 +1,78 @@
+name        = "@AUTO"       # Generated from parameters
+description = "@AUTO"       # Generated from parameters
+category    = "@AUTO"       # Generated from directory structure
+lifecycle   = "untested"    # Default state should be untested
+
+#config 		= "ologic_config_resistor"
+
+[[external]]
+type = "symbol"
+name = "RES-2"
+path = "@PARTPATH/symbol/RES-2.SchLib"
+
+[[external]]
+type = "footprint"
+name = "RESC1005X04L"
+path = "@PARTPATH/footprint/RESC1005_L.PcbLib"
+
+[[external]]
+type = "footprint"
+name = "RESC1005X04N"
+path = "@PARTPATH/footprint/RESC1005_N.PcbLib"
+
+[[external]]
+type = "pcb3d"
+name = "@PARTPATH/pcb3d/RESC1005X04"
+
+[[external]]
+type = "document"
+name = "AN: Using Laser Trimmable Resistors"
+path = "@PARTPATH/doc/vishay-laser-trimmable-res.pdf"
+
+[[external]]
+type = "document"
+name = "AN: Frequency Response of Thin Film Chip Resistors"
+path = "@PARTPATH/doc/vishay-thin-res-freq-response.pdf"
+
+[[external]]
+type = "url"
+name = "Wikipedia"
+path = "https://en.wikipedia.org/wiki/Resistor"
+
+[[external]]
+type = "url"
+name = "Vishay Resistor AN Library"
+path = "https://www.vishay.com/how/onlineliterature/technical-library/#Resistors,%20Fixed,%20Thick%20film"
+
+[[parameter]]
+name = "resistance"
+value = 0
+unit = "Ω"
+visible = true
+
+[[parameter]]
+name = "tolerance"
+value = 0
+unit = "%"
+visible = false
+
+[[parameter]]
+name = "power"
+value = 0
+unit = "W"
+visible = false
+
+[[parameter]]
+name = "mounting_type"
+value = "SMD"
+visible = false
+
+[[parameter]]
+name = "package"
+value = ""
+visible = false
+
+[[parameter]]
+name = "composition"
+value = ""
+visible = false
