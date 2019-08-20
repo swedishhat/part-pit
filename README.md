@@ -20,3 +20,13 @@ The purpose of this project is eventually to create a totally text-based compone
   * Generates an Altium DbLib file formatted with sqlite table info
   * Has ability to pull updates from the git server
   * Digikey parametric search is something I want to add later
+
+## Schematic Symbols
+Schematic symbols are graphical representations of electrical components that first and foremost need to communicate to _humans_ the function of a circuit (as opposed to the physical arrangement). That means that a schematic not only needs to be correctly connected together for the sake of the EDA tool, it also needs to be legible and easy to understand for the sake of the designer. "Legible" and "easy to understand" open up a can of worms since style, convention, and aesthetics are subjective and differ between organizations, tools, and individuals. 
+
+As nice as it would be to define rigid rules that allow symbols to be defined programmatically (e.g. "all input pins go on the left side"), there are a too many "gotchas" and edge cases that provide exceptions to the rule in order to make the schematic capture cleaner (e.g. on switching power supply ICs, the feedback pin is an input, but almost always looks better to place it close to the output inductor on the right side).
+
+So, in Part Pit, schematic symbols are separated conceptually between the following 
+* Electrical model (pin names, pin designators, ERC rule classes)
+* Graphical model (pin decorators for clocks, active-low signals, etc; physical placement of pins)
+* Fuzzy Rules / "Suggestions" (e.g. "VCC pins normally go near the top", "inputs normally go on the left", etc.) that provide sane defaults for positioning pins on new symbols, but allows the designer to move things around 
