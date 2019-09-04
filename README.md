@@ -13,7 +13,7 @@ Part Pit is an open source electronics part managment system that aims to provid
 ## Specifics
 The purpose of this project is eventually to create a component library system that can be managed in a Git repository with entirely text-based description files. It also aims to be able to import from and export to any arbitrary CAD tool format. However, there are some external forces that are guiding the devleopment priorities of the project, so at first, it will be built to serve as an alternative to Altium's Vault system and will organize and manage Altium's proprietary binary library files. Component parameters will be defined using TOML, and the tool will use this data to link together the specified symbol / footprint / datasheets / parameters and produce an Altium DbLib file that links to a locally hosted SQLite3 database. This allows the library to function without internet access, and all changes to the library can be resolved using a collaborative git workflow.
 
-![](assets/pp-phase-1.png?raw=true)
+![Phase 1](assets/pp-phase-1.png?raw=true)
 
 * Components are currently defined with TOML but eventually I'd like to support JSON, YAML, & maybe XML. The input format doesn't really matter, but it should be something that is easy to read, understand, and modify with a text editor
 * Components all stored in a Git repository so you can do diffing & merge resolution using those tools, rather than the ECAD's interface. 
