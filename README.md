@@ -15,6 +15,11 @@ The purpose of this project is eventually to create a component library system t
 
 ![Phase 1](assets/pp-phase-1.png?raw=true)
 
+Eventually, I'd like Part Pit to serve a more generic role:
+
+![Ideal](assets/pp-ideal.png?raw=true)
+
+
 * Components are currently defined with TOML but eventually I'd like to support JSON, YAML, & maybe XML. The input format doesn't really matter, but it should be something that is easy to read, understand, and modify with a text editor
 * Components all stored in a Git repository so you can do diffing & merge resolution using those tools, rather than the ECAD's interface. 
 * Written in Go
